@@ -1,5 +1,5 @@
 - name: setup frontend
-  hosts: localhost
+  hosts: all
   become: yes
   tasks:
     - name: Install the nginx version of Apache
