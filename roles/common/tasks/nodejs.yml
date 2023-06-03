@@ -8,5 +8,5 @@
 
 - name: App pre requisites
   ansible.builtin.import_tasks:
-    file: app_presetup.yaml
+    file: app_presetup.yml
 
