@@ -18,5 +18,5 @@
     - name: Start a mongoDB  service
       ansible.builtin.service:
         state: restarted
-        name: mongodb
+        name: mongo
         enabled: true
