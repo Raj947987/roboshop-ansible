@@ -10,3 +10,11 @@
   ansible.builtin.import_tasks:
     file: app_presetup.yml
 
+- name: node js dependencies need to install
+  ansible.builtin.shell: npm install
+  args:
+    chdir: /app
+
+- name: SystemD setup
+  ansible.builtin.import_tasks:
+    file: systemd_setup.yml
