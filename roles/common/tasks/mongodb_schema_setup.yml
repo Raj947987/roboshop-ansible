@@ -5,6 +5,6 @@
 - name: Install Mongo Db Shell
   ansible.builtin.yum:
     name: mongodb-org-shell
-    state: Installed
+    state: installed
 - name: Load schema
   ansible.builtin.shell: mongo --host mongodb-dev.gmracademy.in.net </app/schema/{{ component }}.js
