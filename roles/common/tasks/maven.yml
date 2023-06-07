@@ -14,6 +14,6 @@
     file: mysql_schema_setup.yml
 - name: sytemd setup
   ansible.builtin.import_tasks:
-  file: systemd_setup.yml
+    file: systemd_setup.yml
 
 
