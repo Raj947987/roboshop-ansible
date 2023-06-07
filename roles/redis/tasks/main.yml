@@ -3,8 +3,8 @@
     name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
     state: installed
     disabled_gng_check: true
-- name: enable redis version
-  ansible.builtin.shell: enable redis:remi-6.2 -y
+- name: enable redis 6 version
+  ansible.builtin.shell: yum module enable redis:remi-6.2 -y
 - task: Install redis
   ansible.builtin.dnf:
     name: redis
