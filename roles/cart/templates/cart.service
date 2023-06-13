@@ -2,8 +2,8 @@
 Description = Cart Service
 [Service]
 User=roboshop
-Environment=REDIS_HOST=redis-dev.gmracademy.in.net
-Environment=CATALOGUE_HOST=catalogue-dev.gmracademy.in.net
+Environment=REDIS_HOST=redis-{{env}}.gmracademy.in.net
+Environment=CATALOGUE_HOST=catalogue-{{env}}.gmracademy.in.net
 Environment=CATALOGUE_PORT=8080
 ExecStart=/bin/node /app/server.js
 SyslogIdentifier=cart
