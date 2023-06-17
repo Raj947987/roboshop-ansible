@@ -1,26 +1,36 @@
-- name: Install the nginx version of Apache
+- name: Installing Nginx Server
   ansible.builtin.yum:
     name: nginx
     state: latest
-- name: Recursively remove directory
+
+- name: Remove directory
   ansible.builtin.file:
     path: /usr/share/nginx/html
     state: absent
-- name: Create a directory if it does not exist
+
+- name: Create directory
   ansible.builtin.file:
     path: /usr/share/nginx/html
     state: directory
-- name: Download and Extract the frontend content
+
+- name: Download and extract frontend content
   ansible.builtin.unarchive:
     src: https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
     dest: /usr/share/nginx/html
     remote_src: yes
-- name: Copy file with owner and permissions
-  ansible.builtin.copy:
+
+- name: Copy nginx configuration
+  ansible.builtin.template:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+
+- name: Copy roboshop configuration
+  ansible.builtin.template:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
-- name: Start a nginx  service
-  ansible.builtin.service:
+
+- name: Start Nginx Service
+  ansible.builtin.systemd:
     state: restarted
     name: nginx
     enabled: true
