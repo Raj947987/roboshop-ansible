@@ -36,3 +36,5 @@ scrape_configs:
      - source_labels: [ __meta_ec2_tag_{{item}} ]
        target_label: {{item}}
 { % endfor % }
+
+

@@ -1,4 +1,4 @@
-- name: Setup RoboShop prometheus
+- name:  Setup RoboShop Prometheus Server
   hosts: localhost
   become: yes
   connection: local
