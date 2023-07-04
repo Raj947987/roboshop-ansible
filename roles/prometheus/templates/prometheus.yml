@@ -26,15 +26,13 @@ scrape_configs:
 
   - job_name: ec2
     ec2_sd_configs:
-      - region: eu-east-1
+      - region: us-east-1
         port: 9100
         filters:
           - name: "tag:Monitor"
-            values: [ "true","yes" ]
+            values: [ "true", "yes" ]
     relabel_configs:
-{ % for item in tags % }
+{% for item in tags %}
      - source_labels: [ __meta_ec2_tag_{{item}} ]
        target_label: {{item}}
-{ % endfor % }
-
-
+{% endfor %}
